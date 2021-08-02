@@ -1,24 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r7S-Lr-OOv">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Holiday-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Holiday" id="BYZ-38-t0r" customClass="ViewController" customModule="HolidayApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Enter Country Code e.g U.S" translatesAutoresizingMaskIntoConstraints="NO" id="5ss-hh-Twx">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GL9-zk-0i0">
+                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="code" rowHeight="105" id="RlL-Jk-li4" customClass="HolidayTableViewCell" customModule="HolidayApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="105"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RlL-Jk-li4" id="rFY-A3-77J">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwA-nw-PK1">
+                                                    <rect key="frame" x="10" y="10" width="394" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="SubTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="MdP-JJ-UYe">
+                                                    <rect key="frame" x="10" y="36" width="394" height="64"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MdP-JJ-UYe" firstAttribute="leading" secondItem="rFY-A3-77J" secondAttribute="leading" constant="10" id="Det-qy-pkJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="MdP-JJ-UYe" secondAttribute="trailing" constant="10" id="NPa-8S-1Ry"/>
+                                                <constraint firstAttribute="bottom" secondItem="MdP-JJ-UYe" secondAttribute="bottom" constant="5" id="UqF-v8-ZrU"/>
+                                                <constraint firstItem="MdP-JJ-UYe" firstAttribute="top" secondItem="EwA-nw-PK1" secondAttribute="bottom" constant="5" id="VKO-hh-5qY"/>
+                                                <constraint firstItem="EwA-nw-PK1" firstAttribute="leading" secondItem="rFY-A3-77J" secondAttribute="leading" constant="10" id="oNE-yU-1oE"/>
+                                                <constraint firstAttribute="trailing" secondItem="EwA-nw-PK1" secondAttribute="trailing" constant="10" id="pHM-G3-xyX"/>
+                                                <constraint firstItem="EwA-nw-PK1" firstAttribute="top" secondItem="rFY-A3-77J" secondAttribute="top" constant="10" id="rYJ-Ju-B3q"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="subTitleLabel" destination="MdP-JJ-UYe" id="650-Ri-70c"/>
+                                            <outlet property="titleLabel" destination="EwA-nw-PK1" id="rxf-Bc-J3d"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GL9-zk-0i0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="C4J-Qu-z3q"/>
+                            <constraint firstItem="GL9-zk-0i0" firstAttribute="top" secondItem="5ss-hh-Twx" secondAttribute="bottom" id="Pfp-dl-RJ0"/>
+                            <constraint firstItem="GL9-zk-0i0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wb5-Yl-0Zf"/>
+                            <constraint firstItem="5ss-hh-Twx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZuK-vT-IwS"/>
+                            <constraint firstItem="5ss-hh-Twx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="f7u-Td-wAd"/>
+                            <constraint firstItem="5ss-hh-Twx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pU5-tR-ID5"/>
+                            <constraint firstItem="GL9-zk-0i0" firstAttribute="top" secondItem="5ss-hh-Twx" secondAttribute="bottom" id="qLj-x3-7p7"/>
+                            <constraint firstAttribute="bottom" secondItem="GL9-zk-0i0" secondAttribute="bottom" id="ujh-un-dcU"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Holiday" id="Pho-2R-3hK"/>
+                    <connections>
+                        <outlet property="countryTableView" destination="GL9-zk-0i0" id="Pv5-TG-7kJ"/>
+                        <outlet property="searchBar" destination="5ss-hh-Twx" id="fwn-4D-9Ke"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="928.98550724637687" y="80.357142857142847"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2nZ-7s-iK5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r7S-Lr-OOv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Rp-A5-DlD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="O1U-Xm-265"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LjV-BH-Gam" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="80.357142857142847"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
