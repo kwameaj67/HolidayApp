@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+ 
+    @IBOutlet weak var selectCountryButton: UIButton!
     @IBOutlet weak var countryTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -26,14 +28,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         searchBar.delegate = self
         countryTableView.delegate = self
         countryTableView.dataSource = self
-        
     }
-
-
+    
+    @IBAction func openCountryModal(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(identifier: "country") as! CountryViewController
+        present(vc, animated: true, completion: nil)
+    }
+    
 }
 extension ViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
