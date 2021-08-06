@@ -24,14 +24,7 @@ class HolidayTableViewCell: UITableViewCell {
             subTitleLabel.text = mydate
         }
     
-        titleLabel.text = item.name
-
-        
-       
-       
-        
-        
-      
+        titleLabel.text = item.name  
         
     }
     
