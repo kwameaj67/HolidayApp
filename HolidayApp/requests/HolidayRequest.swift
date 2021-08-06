@@ -16,7 +16,7 @@ enum HolidayError:Error{
 
 struct HolidayRequest {
     let resourceURL:URL
-    let API_KEY = "4f5a8dd7b979c27a214e0e8503b0efe9dedbf0de"
+    let API_KEY = Constants.API.holiday_api_key
     
     init(countryCode:String) {
         let date = Date()
@@ -35,9 +35,10 @@ struct HolidayRequest {
             if let err = error {
                 print("\(err.localizedDescription)")
                 completion(.failure(.serverError))
-            }else{
+            }
+            else{
                 let JSONData = try? JSONSerialization.jsonObject(with: data!, options: [])
-//                print(JSONData!)
+                print(JSONData!)
             }
             guard let jsonData = data else {
                 completion(.failure(.noDataAvailable))
