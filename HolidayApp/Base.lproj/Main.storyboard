@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="144" width="414" height="752"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="code" rowHeight="105" id="RlL-Jk-li4" customClass="HolidayTableViewCell" customModule="HolidayApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HolidayCode" rowHeight="105" id="RlL-Jk-li4" customClass="HolidayTableViewCell" customModule="HolidayApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RlL-Jk-li4" id="rFY-A3-77J">
@@ -32,15 +32,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwA-nw-PK1">
-                                                    <rect key="frame" x="10" y="10" width="394" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="10" y="10" width="394" height="25"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="SubTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="MdP-JJ-UYe">
-                                                    <rect key="frame" x="10" y="36" width="394" height="64"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="10" y="40" width="394" height="60"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -75,15 +75,134 @@
                             <constraint firstAttribute="bottom" secondItem="GL9-zk-0i0" secondAttribute="bottom" id="ujh-un-dcU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Holiday" id="Pho-2R-3hK"/>
+                    <navigationItem key="navigationItem" title="Holiday" id="Pho-2R-3hK">
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="done" id="LOP-h0-5yn">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="K6v-Qw-wYB">
+                                <rect key="frame" x="376" y="11" width="18" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.04838274419" green="0.016198251399999999" blue="0.05302410573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="openCountryModal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qzh-Sy-6hx"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" red="0.04838274419" green="0.016198251399999999" blue="0.05302410573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="e7c-Xm-qor" kind="presentation" id="me9-39-SRa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="countryTableView" destination="GL9-zk-0i0" id="Pv5-TG-7kJ"/>
                         <outlet property="searchBar" destination="5ss-hh-Twx" id="fwn-4D-9Ke"/>
+                        <outlet property="selectCountryButton" destination="K6v-Qw-wYB" id="QEk-qU-dzC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="80.357142857142847"/>
+        </scene>
+        <!--Country View Controller-->
+        <scene sceneID="32N-vI-tW7">
+            <objects>
+                <viewController storyboardIdentifier="country" id="e7c-Xm-qor" customClass="CountryViewController" customModule="HolidayApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L2Z-bY-0AS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5t2-cn-anI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="fix-LC-6O2"/>
+                                </constraints>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Country/Region" id="7ik-et-Qb9">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="nvx-Lo-N0x">
+                                            <inset key="landscapeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
+                                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iwm-v9-qOx">
+                                                <rect key="frame" x="20" y="7" width="19.5" height="42"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="tintColor" red="0.04838274419" green="0.016198251399999999" blue="0.05302410573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" image="xmark" catalog="system"/>
+                                                <connections>
+                                                    <action selector="cancelButton:" destination="e7c-Xm-qor" eventType="touchUpInside" id="u8C-82-qpt"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mcH-5p-8Re">
+                                <rect key="frame" x="0.0" y="70" width="414" height="772"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryCode" rowHeight="85" id="YeQ-go-9yQ" customClass="CountryTableViewCell" customModule="HolidayApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YeQ-go-9yQ" id="Kvf-Nm-OHt">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="oVD-jF-xfe">
+                                                    <rect key="frame" x="30" y="30" width="362" height="25"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venezuela" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfQ-He-Urd">
+                                                            <rect key="frame" x="0.0" y="0.0" width="177.5" height="25"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+223" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLr-oA-eXR">
+                                                            <rect key="frame" x="184.5" y="0.0" width="177.5" height="25"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="oVD-jF-xfe" firstAttribute="centerY" secondItem="Kvf-Nm-OHt" secondAttribute="centerY" id="76H-My-Zph"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="oVD-jF-xfe" secondAttribute="trailing" constant="2" id="FMC-8N-AyX"/>
+                                                <constraint firstItem="oVD-jF-xfe" firstAttribute="leading" secondItem="Kvf-Nm-OHt" secondAttribute="leadingMargin" constant="10" id="qVd-lM-eX0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="callingCode" destination="jLr-oA-eXR" id="3be-cL-lBd"/>
+                                            <outlet property="name" destination="tfQ-He-Urd" id="Mzi-XD-vBx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="R7G-hI-CRu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5t2-cn-anI" firstAttribute="top" secondItem="R7G-hI-CRu" secondAttribute="top" id="1sG-T4-M2B"/>
+                            <constraint firstItem="5t2-cn-anI" firstAttribute="leading" secondItem="mcH-5p-8Re" secondAttribute="leading" id="8fp-Cp-9SF"/>
+                            <constraint firstItem="mcH-5p-8Re" firstAttribute="leading" secondItem="R7G-hI-CRu" secondAttribute="leading" id="RSv-pS-S4Q"/>
+                            <constraint firstItem="mcH-5p-8Re" firstAttribute="top" secondItem="5t2-cn-anI" secondAttribute="bottom" constant="10" id="TXf-0R-UdU"/>
+                            <constraint firstItem="5t2-cn-anI" firstAttribute="trailing" secondItem="mcH-5p-8Re" secondAttribute="trailing" id="XyQ-CA-sfv"/>
+                            <constraint firstItem="mcH-5p-8Re" firstAttribute="trailing" secondItem="R7G-hI-CRu" secondAttribute="trailing" id="Z6K-cL-xis"/>
+                            <constraint firstAttribute="bottom" secondItem="mcH-5p-8Re" secondAttribute="bottom" id="xRb-Ym-UTo"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="countryTableView" destination="mcH-5p-8Re" id="cOD-NJ-Xoy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gAT-4U-sfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1689.8550724637682" y="79.6875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2nZ-7s-iK5">
@@ -93,6 +212,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Rp-A5-DlD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -105,6 +228,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

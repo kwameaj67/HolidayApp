@@ -44,7 +44,7 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
         return listOfHolidays.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = countryTableView.dequeueReusableCell(withIdentifier: "code",for: indexPath) as! HolidayTableViewCell
+        let cell = countryTableView.dequeueReusableCell(withIdentifier: "HolidayCode",for: indexPath) as! HolidayTableViewCell
         cell.setup(item:listOfHolidays[indexPath.row])
         return cell
     }
