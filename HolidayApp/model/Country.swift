@@ -12,6 +12,7 @@ struct Country:Decodable {
     var name: String
     var alpha2Code: String
     var callingCodes:[String]
+//    var isChecked: Bool = true
 }
 
 
