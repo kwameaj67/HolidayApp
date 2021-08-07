@@ -14,6 +14,6 @@ class CountryTableViewCell: UITableViewCell {
     
     func setupCountry(item: Country){
         name.text = item.name
-        callingCode.text = "+\(item.callingCodes[0])"
+        callingCode.text = "(+\(item.callingCodes[0]))"
     }
 }
