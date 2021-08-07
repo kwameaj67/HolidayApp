@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+//https://restcountries.eu/#api-endpoints-response-example
 enum CountryError:Error{
     case noData
     case serverError
@@ -41,7 +41,7 @@ struct CountryRequest {
             let decoder = JSONDecoder()
             let decodedData = try? decoder.decode([Country].self, from: data)
             completion(.success(decodedData!))
-            print(decodedData!)
+//            print(decodedData!)
             
         }.resume()
     }
