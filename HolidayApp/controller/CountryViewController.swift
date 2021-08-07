@@ -23,6 +23,8 @@ class CountryViewController: UIViewController {
         makeCountryRequest()
         countryTableView.delegate = self
         countryTableView.dataSource = self
+//        countryTableView.allowsMultipleSelection = true
+        countryTableView.allowsSelection = true
     }
     
     
@@ -52,6 +54,18 @@ extension CountryViewController:UITableViewDelegate,UITableViewDataSource{
         let row = CountryList[indexPath.row]
         cell.setupCountry(item: row)
         return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75.0
+            
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var row = CountryList[indexPath.row]
+//        row.isChecked = !row.isChecked
+//        tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        print("Name:\(row.name)\nCallingCode:\(row.callingCodes[0])\nAlphaCode:\(row.alpha2Code)")
+        dismiss(animated: true, completion: nil)
     }
 }
 
