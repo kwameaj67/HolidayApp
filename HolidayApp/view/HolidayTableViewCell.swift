@@ -14,16 +14,20 @@ class HolidayTableViewCell: UITableViewCell {
     
     func setup(item:HolidayDetail){
         let isoDate = item.date.iso
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.dateFormat = "EEEE, MMM d, yyyy"
-        formatter.dateStyle = .long
+        let inputFormatter = DateFormatter()
+        inputFormatter.locale = Locale(identifier: "en_US_POSIX")
+        inputFormatter.dateFormat = "yyyy-MM-dd"
+
+        let date = inputFormatter.date(from: isoDate!)
+        inputFormatter.dateStyle = .long
         
-        if let mydate = isoDate {
-            formatter.date(from: mydate)
-            subTitleLabel.text = mydate
-        }
-    
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "EEEE, MMMM d, yyyy"
+        if let mydate = date {
+            let finalDate = outputFormatter.string(from: mydate)
+              subTitleLabel.text = finalDate
+              print(finalDate)
+          }
         titleLabel.text = item.name  
         
     }
