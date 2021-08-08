@@ -7,6 +7,9 @@
 
 import UIKit
 
+protocol CountrySelectionDelegate {
+    func selectCountryCode(code:String)
+}
 class CountryViewController: UIViewController {
     
     @IBOutlet weak var countryTableView: UITableView!
@@ -17,6 +20,7 @@ class CountryViewController: UIViewController {
         }
     }
 }
+    var selectCountry: CountrySelectionDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,10 +65,9 @@ extension CountryViewController:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var row = CountryList[indexPath.row]
-//        row.isChecked = !row.isChecked
-//        tableView.reloadRows(at: [indexPath], with: .automatic)
         
-        print("Name:\(row.name)\nCallingCode:\(row.callingCodes[0])\nAlphaCode:\(row.alpha2Code)")
+//        print("Name:\(row.name)\nCallingCode:\(row.callingCodes[0])\nAlphaCode:\(row.alpha2Code)")
+        selectCountry.selectCountryCode(code: row.alpha2Code)
         dismiss(animated: true, completion: nil)
     }
 }
