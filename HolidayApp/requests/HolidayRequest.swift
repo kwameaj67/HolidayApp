@@ -38,7 +38,7 @@ struct HolidayRequest {
             }
             else{
                 let JSONData = try? JSONSerialization.jsonObject(with: data!, options: [])
-                print(JSONData!)
+//                print(JSONData!)
             }
             guard let jsonData = data else {
                 completion(.failure(.noDataAvailable))

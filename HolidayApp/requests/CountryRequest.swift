@@ -30,7 +30,7 @@ struct CountryRequest {
                 print("\(err.localizedDescription)")
                 completion(.failure(.serverError))
             }else{
-                let countryJsonData =  try? JSONSerialization.jsonObject(with: data!, options: [])
+                _ =  try? JSONSerialization.jsonObject(with: data!, options: [])
 //                print(countryJsonData!)
             }
             

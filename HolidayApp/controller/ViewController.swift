@@ -71,7 +71,7 @@ extension ViewController:UISearchBarDelegate,CountrySelectionDelegate{
                 print("\(error.localizedDescription)")
             case .success(let holidays):
                 self?.listOfHolidays = holidays
-//                print(self!.listOfHolidays)
+                print(self!.listOfHolidays)
             }
         }
     }
