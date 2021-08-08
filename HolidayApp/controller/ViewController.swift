@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
  
     @IBOutlet weak var selectCountryButton: UIButton!
     @IBOutlet weak var countryTableView: UITableView!
@@ -31,11 +31,13 @@ class ViewController: UIViewController {
         searchBar.delegate = self
         countryTableView.delegate = self
         countryTableView.dataSource = self
+        
     }
     
     @IBAction func openCountryModal(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(identifier: "country") as! CountryViewController
         present(vc, animated: true, completion: nil)
+        vc.selectCountry = self
     }
     
 }
@@ -49,8 +51,18 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
         return cell
     }
 }
-extension ViewController:UISearchBarDelegate{
+extension ViewController:UISearchBarDelegate,CountrySelectionDelegate{
     
+    func selectCountryCode(code: String) {
+        
+        searchBar.text = code
+        makeRequest(text: code)
+        print(code)
+      
+    }
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return true
+    }
     func makeRequest(text: String){
         let holidayRequest = HolidayRequest(countryCode: text)
         holidayRequest.getHolidays { [weak self] result in
@@ -64,15 +76,10 @@ extension ViewController:UISearchBarDelegate{
         }
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.text else {return}
+        guard var searchText = searchBar.text else {return}
         makeRequest(text: searchText)
+//        print("Search:\(searchText)\nCode:\(countryAlphaCode)")
     }
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        if(searchText.count > 2){
-//            makeRequest(text: searchText)
-//        }else{
-//            countryTableView.isHidden = false
-//           
-//        }
-//    }
+    
+
 }
