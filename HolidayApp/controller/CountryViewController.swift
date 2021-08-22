@@ -64,7 +64,7 @@ extension CountryViewController:UITableViewDelegate,UITableViewDataSource{
             
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var row = CountryList[indexPath.row]
+        let row = CountryList[indexPath.row]
         
 //        print("Name:\(row.name)\nCallingCode:\(row.callingCodes[0])\nAlphaCode:\(row.alpha2Code)")
         selectCountry.selectCountryCode(code: row.alpha2Code)

@@ -67,19 +67,32 @@ extension ViewController:UISearchBarDelegate,CountrySelectionDelegate{
         let holidayRequest = HolidayRequest(countryCode: text)
         holidayRequest.getHolidays { [weak self] result in
             switch result{
-            case .failure(let error):
-                print("\(error.localizedDescription)")
+            case .failure(.noDataAvailable):
+//                print("\(error.localizedDescription)")
+                self?.showAlert(msg: "There's an error. Invalid callingCode")
             case .success(let holidays):
-                self?.listOfHolidays = holidays
+                DispatchQueue.main.async {
+                    self?.listOfHolidays = holidays
+                }
                 print(self!.listOfHolidays)
+            case .failure(.canNotProcessData):
+                self?.showAlert(msg: "There's an error. Something went wrong")
+            case .failure(.serverError):
+                self?.showAlert(msg: "There's an error. Server error")
             }
         }
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard var searchText = searchBar.text else {return}
+        guard let searchText = searchBar.text else {return}
         makeRequest(text: searchText)
 //        print("Search:\(searchText)\nCode:\(countryAlphaCode)")
     }
     
+    func showAlert(msg:String){
+        let alert = UIAlertController(title: "Oops", message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.present(alert, animated: true, completion: nil)
+        
+    }
 
 }

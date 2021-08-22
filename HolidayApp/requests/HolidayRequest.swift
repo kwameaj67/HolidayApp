@@ -38,7 +38,7 @@ struct HolidayRequest {
             }
             else{
                 let JSONData = try? JSONSerialization.jsonObject(with: data!, options: [])
-//                print(JSONData!)
+                print(JSONData!)
             }
             guard let jsonData = data else {
                 completion(.failure(.noDataAvailable))
@@ -46,8 +46,13 @@ struct HolidayRequest {
             }
             let decoder = JSONDecoder()
             let decodedData = try? decoder.decode(HolidayResponse.self, from: jsonData)
-            let holidayDetailResponse = decodedData?.response.holidays
-            completion(.success(holidayDetailResponse!))
+//            print(decodedData)
+            if let holidayDetailResponse = decodedData?.response.holidays{
+                completion(.success(holidayDetailResponse))
+            }else{
+                completion(.failure(.noDataAvailable))
+            }
+          
            
         }.resume()
         

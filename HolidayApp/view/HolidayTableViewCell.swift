@@ -27,7 +27,9 @@ class HolidayTableViewCell: UITableViewCell {
             let finalDate = outputFormatter.string(from: mydate)
               subTitleLabel.text = finalDate
               print(finalDate)
-          }
+        }else{
+            subTitleLabel.text = "No date found"
+        }
         titleLabel.text = item.name  
         
     }
