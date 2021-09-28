@@ -1,7 +1,7 @@
 # HolidayApp
 
 ## Description
-An app that shows you all holidays of countries and states
+An app that displays all holidays of countries and states around the world.
 
 Worked on this page with UIKit
 
@@ -12,5 +12,5 @@ Allows users to select a country of thier choice
 
 ![](HolidayApp/Assets.xcassets/holiday.png)
 
-App shows all holidays of the particular country.
+In HolidayApp, we shows a list of  holidays of the particular country
 
