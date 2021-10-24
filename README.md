@@ -3,12 +3,20 @@
 ## Description
 An app that displays all holidays of countries and states around the world.
 
-Worked on this page with UIKit
+## Core technologies
+* UITableView
+* Network Requests with URLSession.
+
+## Note:
+This application was built using:
+* macOS Sur 11.5.2
+* Xcode 12.5.1
+* MVC Pattern
 
 ## Screenshots with features
 ![](HolidayApp/Assets.xcassets/country.png)
 
-Allows users to select a country of thier choice
+Allows users to select a country of their choice
 
 ![](HolidayApp/Assets.xcassets/holiday.png)
 
